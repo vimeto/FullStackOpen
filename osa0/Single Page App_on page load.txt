@@ -1,0 +1,19 @@
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+palvelin-->selain: main.js
+
+note over selain:
+selain alkaa suorittaa js-koodia joka pyytää JSON-datan palvelimelta sekä favicon.ico HTML tiedoston
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [{ content: "A simple string", date: "2019-01-01" }, ...]
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+palvein-->selain: HTML-koodi
+
+note over selain:
+selain suorittaa tapahtumankäsittelijän joka renderöi muistiinpanot näytölle
+end note
