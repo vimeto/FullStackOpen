@@ -1,55 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import noteServise from './services/notes'
-
-const Form = ({ formSubmit, newName, newPhone, nameHandler, phoneHandler }) => (
-  <>
-    <h2>add a new</h2>
-    <form onSubmit={formSubmit}>
-      <div>
-        name: <input value={newName} onChange={nameHandler} />
-      </div>
-      <div>
-        number: <input value={newPhone} onChange={phoneHandler} />
-      </div>
-      <button type="submit">add</button>
-    </form>
-  </>
-
-)
-
-const PhoneNumberList = ({ persons, newFilter, onDeleteButtonClick }) => (
-  <>
-    <h2>Numbers</h2>
-    {persons.map( (person) => {
-      if (person.name.toLowerCase().includes(newFilter.toLowerCase()) ) {
-        return <Person person={person} onDeleteButtonClick={onDeleteButtonClick} key={person.id}/>
-      }
-      return <></>
-    })}
-  </>
-)
-
-const Person = ({ person, onDeleteButtonClick }) => (
-  <div>
-    {person.name} {person.number} <button onClick={() => onDeleteButtonClick(person.id)}>delete</button>
-  </div>
-)
-
-const ErrorMessage = ({ errorObject }) => {
-  if (errorObject === null) {
-    return null
-  }
-  const styleObj = {
-    color: errorObject.color,
-    border: `2px solid ${errorObject.color}`
-  }
-  return (
-    <div className={'errorMessage'} style={styleObj}>
-      {errorObject.text}
-    </div>
-    )
-}
-  
+import Form from './components/form'
+import PhoneNumberList from './components/phonenumberlist'
+import ErrorMessage from './components/errormessage'
 
 
 const App = () => {
@@ -127,7 +80,7 @@ const App = () => {
       noteServise
         .del(id)
         .then(response => {
-          console.log("delete promise fulfilled")
+          /* console.log("delete promise fulfilled") */
           handleChangingErrorMessage(`${personToBeDeleted.name} deleted successfully`, "green")
           setPersons( persons.filter(person => person.id !== id))
           /* console.log(persons) */
