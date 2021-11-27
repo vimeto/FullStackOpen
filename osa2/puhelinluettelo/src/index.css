@@ -1,0 +1,17 @@
+.errorMessage {
+    display: block;
+    background: #ccc;
+    /* border: 2px solid red;
+    color: red; */
+    border-radius: 20px;
+    font-size: 1.1rem;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    20%, 80% { 
+        border-color: #fff;
+        color: #000; }
+}
