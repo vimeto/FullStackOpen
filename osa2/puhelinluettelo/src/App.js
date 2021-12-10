@@ -71,21 +71,27 @@ const App = () => {
         setNewName('')
         setNewPhone('')
     })
+    .catch(error => {
+      console.log(error.response.data.error)
+      handleChangingErrorMessage(error.response.data.error, "red")
+    })
   }
 
   const onDeleteButtonClick = (id) => {
+    console.log(persons)
     const personToBeDeleted = persons.find(n => n.id === id)
 
     if (window.confirm(`Do you really want to delete ${personToBeDeleted.name}?`)) {
       noteServise
         .del(id)
         .then(response => {
-          /* console.log("delete promise fulfilled") */
+          console.log("delete promise fulfilled")
           handleChangingErrorMessage(`${personToBeDeleted.name} deleted successfully`, "green")
           setPersons( persons.filter(person => person.id !== id))
           /* console.log(persons) */
         })
         .catch(response => {
+          console.log("error")
           handleChangingErrorMessage(`${personToBeDeleted.name} seems to have been deleted elsewhere...`, "red")
           setPersons( persons.filter(person => person.id !== personToBeDeleted.id))
         })
