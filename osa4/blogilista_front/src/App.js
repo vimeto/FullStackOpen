@@ -16,6 +16,7 @@ const App = () => {
     blogService
       .getAll()
       .then(response => {
+        console.log(response)
         setBlogs(response)
     })
   }, [])
@@ -58,37 +59,41 @@ const App = () => {
         setNewUrl('')
     })
     .catch(error => {
-      console.log("There was an error handling your request.")
-      handleChangingErrorMessage("There was an error handling your request.", "red")
+      console.log(error.message)
+
+      handleChangingErrorMessage(error.message, "red")
     })
   }
 
-  /* const onDeleteButtonClick = (id) => {
-    const personToBeDeleted = persons.find(n => n.id === id)
-
-    if (window.confirm(`Do you really want to delete ${personToBeDeleted.name}?`)) {
-      blogService
-        .del(id)
-        .then(response => {
-          console.log("delete promise fulfilled")
-          handleChangingErrorMessage(`${personToBeDeleted.name} deleted successfully`, "green")
-          setPersons( persons.filter(person => person.id !== id))
-          console.log(persons)
-        })
-        .catch(response => {
-          handleChangingErrorMessage(`${personToBeDeleted.name} seems to have been deleted elsewhere...`, "red")
-          setPersons( persons.filter(person => person.id !== personToBeDeleted.id))
-        })
+  const onPostLike = (id) => {
+    const blogLiked = blogs.find(n => n.id === id)
+    const blog = {
+      author: blogLiked.author,
+      title: blogLiked.title,
+      url: blogLiked.url,
+      likes: blogLiked.likes + 1
     }
+
+    blogService
+      .update(id, blog)
+      .then(response => {
+        handleChangingErrorMessage(`${blogLiked.title} by ${blogLiked.author} liked successfully`, "green")
+        const newBlogs = blogs.map(blog => (blog.id === id ? response : blog))
+        setBlogs( newBlogs )
+        /* console.log("persons", blogs) */
+      })
+      .catch(() => {
+        handleChangingErrorMessage(`${blogLiked.title} like failed`, "red")
+      })
     
-  } */
+  }
 
   return (
     <div>
       <h1>Blogs</h1>
       <ErrorMessage errorObject={errorMessage} />
       <Form formSubmit={addBlog} newAuthor={newAuthor} newTitle={newTitle} newUrl={newUrl} authorHandler={handleAuthorChange} titleHandler={handleTitleChange} urlHandler={handleUrlChange} />
-      {/* <BlogList persons={persons} newFilter={newFilter} onDeleteButtonClick={onDeleteButtonClick} /> */}
+      <BlogList blogs={blogs} onPostLike={onPostLike} />
     </div>
   )
 
