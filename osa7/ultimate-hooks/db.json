@@ -1,0 +1,49 @@
+{
+  "notes": [
+    {
+      "content": "custom-hooks are grat",
+      "id": 1
+    },
+    {
+      "content": "the best featrure ever <3",
+      "id": 2
+    },
+    {
+      "content": "Here's my thing",
+      "id": 3
+    },
+    {
+      "content": "Holyy shit",
+      "id": 4
+    },
+    {
+      "content": "Here's another note",
+      "id": 5
+    },
+    {
+      "content": "Here's yet another note",
+      "id": 6
+    },
+    {
+      "content": "Hmmm this works better than I thought",
+      "id": 7
+    }
+  ],
+  "persons": [
+    {
+      "name": "mluukkai",
+      "number": "040-5483923",
+      "id": 1
+    },
+    {
+      "name": "kaltsoon",
+      "number": "045-2323456",
+      "id": 2
+    },
+    {
+      "name": "Vilhelm Toivonen",
+      "number": "0452624001",
+      "id": 3
+    }
+  ]
+}
