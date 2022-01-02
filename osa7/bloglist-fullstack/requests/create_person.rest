@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhcG9sZXBwYW5lbiIsImlkIjoiNjFiNDcyMTkwZDMxMTMyNTU1M2Q2OThmIiwiaWF0IjoxNjM5MjIwNDI3LCJleHAiOjE2MzkyMjQwMjd9.3SXb576oXQgHOoQuP9PfoXQXXsSk-g9LFhh884W9whA
+
+{
+    "author":"Vilhelm Tyhmä",
+    "title":"How to die",
+    "url":"miksitämänpitääollauniikki",
+    "userId": "61b472190d311325553d698f"
+}

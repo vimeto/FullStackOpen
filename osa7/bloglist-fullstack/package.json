@@ -1,0 +1,41 @@
+{
+  "name": "blogi_lista_backend",
+  "version": "0.0.1",
+  "description": "FullStack app that keeps track of blog posts",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "test": "NODE_ENV=test jest --verbose --runInBand --detectOpenHandles",
+    "lint": "eslint .",
+    "start:test": "cross-env NODE_ENV=test node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vimeto/FullStackOpen_4_backend.git"
+  },
+  "author": "Vilhelm Toivonen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vimeto/FullStackOpen_4_backend/issues"
+  },
+  "homepage": "https://github.com/vimeto/FullStackOpen_4_backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5",
+    "mongoose-unique-validator": "^2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "jest": "^26",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6",
+    "cross-env": "7.0.3"
+  }
+}
