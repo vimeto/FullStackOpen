@@ -1,0 +1,23 @@
+{
+  "name": "book-app-back",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js"
+  },
+  "author": "Vilhelm Toivonen",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.21.0",
+    "cors": "^2.8.5",
+    "graphql": "^15.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.17",
+    "mongoose-unique-validator": "^2.0.3",
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2"
+  }
+}
