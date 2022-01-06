@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+  "name": "Vilhelm Toivonen",
+  "dateOfBirth": "2002-10-02",
+  "ssn": "1234567890-12345-12345",
+  "gender": "other",
+  "occupation": "student"
+}

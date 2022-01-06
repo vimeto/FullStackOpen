@@ -1,0 +1,13 @@
+POST http://localhost:3001/api/patients/af27f720-6f0e-11ec-8631-ed8b8b1d1483/entries
+Content-Type: application/json
+
+{
+  "description": "Here's my first entry to backend",
+  "date": "2020-02-01",
+  "specialist": "Alma Toivonen",
+  "type": "Hospital",
+  "discharge": {
+    "date": "2020-01-01",
+    "criteria": "Because he was fine"
+  }
+}
